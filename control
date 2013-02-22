@@ -1,0 +1,14 @@
+Package: me.devbug.lsclockhide
+Name: LSClockHide
+Version: 0.1
+Priority: optional
+Architecture: iphoneos-arm
+Depends: firmware (>= 5.0), mobilesubstrate
+Maintainer: deVbug <devbug@devbug.me>
+Author: deVbug <devbug@devbug.me>
+Section: Tweaks
+dev: deVbug
+Tag: purpose::extension
+Conflicts: com.ashman.clockhide
+Replaces: com.ashman.clockhide
+Description: Hide ClockView at lockscreen.
