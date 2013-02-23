@@ -28,8 +28,10 @@
 - (void)setVisibleHeaderViews:(BOOL)visible {
 	if (visible) {
 		self.topBar.alpha = 1.0f;
+		self.topBar.hidden = NO;
 	} else {
 		self.topBar.alpha = 0.0f;
+		self.topBar.hidden = YES;
 	}
 }
 
