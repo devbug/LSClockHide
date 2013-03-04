@@ -63,22 +63,16 @@
 %end
 
 
-%hook SBAwayBulletinListView
-
-- (void)setFrame:(CGRect)frame {
-	SBAwayView *awayView = (SBAwayView *)self.superview;
-	CGRect newFrame = CGRectMake(frame.origin.x, awayView.topBar.frame.origin.y, frame.size.width, frame.size.height + frame.origin.y);
-	%orig(newFrame);
-}
-
-%end
-
-
 %hook SBAwayBulletinListController
 
 - (void)setViewRect:(CGRect)frame {
 	SBAwayView *awayView = (SBAwayView *)self.view.superview;
-	CGRect newFrame = CGRectMake(frame.origin.x, awayView.topBar.frame.origin.y, frame.size.width, frame.size.height + frame.origin.y);
+	if (awayView.isShowingMediaControls) {
+		%orig;
+		return;
+	}
+	
+	CGRect newFrame = CGRectMake(frame.origin.x, awayView.topBar.frame.origin.y, frame.size.width, frame.size.height + awayView.topBar.frame.size.height);
 	%orig(newFrame);
 }
 

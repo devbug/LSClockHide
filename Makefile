@@ -6,7 +6,7 @@ LSClockHide_FRAMEWORKS = UIKit Foundation
 
 include $(THEOS_MAKE_PATH)/tweak.mk
 
-export FW_DEVICE_IP=192.168.1.2
+export FW_DEVICE_IP=192.168.1.9
 
 ri:: remoteinstall
 remoteinstall:: all internal-remoteinstall after-remoteinstall
