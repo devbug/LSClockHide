@@ -67,13 +67,10 @@
 
 - (void)setViewRect:(CGRect)frame {
 	SBAwayView *awayView = (SBAwayView *)self.view.superview;
-	if (awayView.isShowingMediaControls) {
-		%orig;
-		return;
-	}
 	
 	CGRect newFrame = CGRectMake(frame.origin.x, awayView.topBar.frame.origin.y, frame.size.width, frame.size.height + awayView.topBar.frame.size.height);
-	%orig(newFrame);
+	
+	%orig(awayView.isShowingMediaControls ? frame : newFrame);
 }
 
 %end
